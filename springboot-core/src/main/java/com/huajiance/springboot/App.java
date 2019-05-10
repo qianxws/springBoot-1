@@ -1,4 +1,4 @@
-package com.huajiance.springboot_core;
+package com.huajiance.springboot;
 
 /**
  * Hello world!
