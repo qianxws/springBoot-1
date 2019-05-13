@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huajiance.springboot.mapper.UserMapper">
+
+	<select id="getByUserId" resultMap="com.huajiance.springboot.entity.TUser">
+		SELECT * FROM dev_user WHERE userid = #{userId}
+	</select>
+	
+	
+	<select id="getMenusByUserId" resultMap="com.huajiance.springboot.entity.TUser">
+		select distinct  da.code 
+        from dev_auth da join dev_role_auth dra on da.authid = dra.authid 
+            join dev_user_role dur on dur.roleid = dra.roleid 
+        where dur.userid = #{userId}
+	</select>
+</mapper>
