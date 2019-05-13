@@ -41,7 +41,7 @@
               <input type="checkbox"> 记住我
             </label>
           </div>
-        </div>      
+        </div>
         <div class="col-xs-4">
           <button type="button" class="btn btn-primary btn-block btn-flat" v-on:click="check"  >登录</button>
         </div>    
@@ -64,16 +64,7 @@
       increaseArea: '20%' /* optional */
     });
   });
-  
-  /* var vue= new Vue({
-	  el:"#testvue",
-      data:{
-    	  users:{
-    		  username:'',
-    		  password:'',   		  
-    	  }
-      }	  
-  }); */
+
   var vue=new Vue({
       el:"#testvue",
       data:{
@@ -88,13 +79,13 @@
        var passwords=this.users.password;
        if(usernames == '' || passwords == '' ){
            alert('账号或密码不能为空');
-       }else{       
+       }else{
           $.ajax({
               url:"",
               dataType:"json",
               async:true,
               data:{usernames:usernames,passwords:passwords},
-              type:"POST",           
+              type:"POST",
               success:function (data){
                   console.log(data)
               },
@@ -104,7 +95,7 @@
           })
        }
      }*/
-  
+
 
 </script>
 </body>
