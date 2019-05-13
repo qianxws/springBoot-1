@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,13 +24,13 @@
   <div class="login-box-body">
     <p class="login-box-msg">登录打开新世界</p>
 
-    <form action="" method="post" id="testvue">
+    <form action="/login" method="post" id="testvue">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="用户名"  v-model="users.username ">
+        <input type="text" class="form-control" placeholder="用户名"  name="username" id="username" v-model="users.username ">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="密码"  v-model="users.password" >
+        <input type="password" class="form-control" placeholder="密码" name="password" id="password"  v-model="users.password" >
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -42,7 +42,7 @@
           </div>
         </div>      
         <div class="col-xs-4">
-          <button type="button" class="btn btn-primary btn-block btn-flat" v-on:click="check"  >登录</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat" v-on:click="check"  >登录</button>
         </div>    
       </div>
     </form>
@@ -65,7 +65,7 @@
       increaseArea: '20%' /* optional */
     });
   });
-  
+  /*
   var vue=new Vue({
       el:"#testvue",
       data:{
@@ -82,22 +82,25 @@
            alert('账号或密码不能为空');
        }else{       
           $.ajax({
-              url:"",
+              url:"localhost/login",
               dataType:"json",
               async:true,
               data:{usernames:usernames,passwords:passwords},
               type:"POST",           
               success:function (data){
                   console.log(data)
+                  debugger
               },
               error :function(data){
                   console.log(data)
+                  debugger
               }
           })
        }
      }
   }
   })
+*/
 </script>
 </body>
 </html>

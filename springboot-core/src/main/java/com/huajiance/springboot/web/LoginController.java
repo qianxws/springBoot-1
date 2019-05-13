@@ -27,7 +27,6 @@ public class LoginController {
     @Autowired
     private RedisUtils redisUtils;
 
-    @RequestMapping("/")
     public String showHome() {
         String name = SecurityContextHolder.getContext().getAuthentication().getName();
         logger.info("当前登陆用户：" + name);
@@ -36,17 +35,11 @@ public class LoginController {
 
     }
 
-    @RequestMapping("/login")
-    @ResponseBody
     public JSONObject showLogin(String token) {
         JSONObject json = new JSONObject();
         // 获取当前登录用户
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        String realtoken="";
-        if(TokenUtils.tokenMap!=null){
-//            realtoken = TokenUtils.tokenMap.get(username) != null ? TokenUtils.tokenMap.get(username) : "";
-            realtoken = redisUtils.get(username) != null ? redisUtils.get(username) : "";
-        }
+        String realtoken=redisUtils.get(username) != null ? redisUtils.get(username) : "";
 
         if ("anonymousUser".equals(username)){
             json.put("success",false);

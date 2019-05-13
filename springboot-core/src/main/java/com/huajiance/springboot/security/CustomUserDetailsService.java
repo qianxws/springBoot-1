@@ -5,6 +5,7 @@ import com.huajiance.springboot.service.UserService;
 import com.huajiance.springboot.utils.RedisUtils;
 import com.huajiance.springboot.utils.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -42,7 +43,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         }
 
         // 返回UserDetails实现类
-        User userDetails = new User(user.getName(), user.getPassword(), null);
+        User userDetails = new User(user.getName(), user.getPassword(),  AuthorityUtils.commaSeparatedStringToAuthorityList("root"));
         return userDetails;
     }
 }
