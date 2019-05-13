@@ -9,12 +9,12 @@
 		<result column="sex" jdbcType="VARCHAR" property="sex" />
 	</resultMap>
 
-	<select id="getByUserId" resultMap="com.huajiance.springboot.entity.TUser">
+	<select id="getByUserId" resultMap="TUser">
 		SELECT userid, name, password, sex FROM dev_user WHERE userid = #{userId}
 	</select>
 
 
-	<select id="getMenusByUserId" resultMap="com.huajiance.springboot.entity.TUser">
+	<select id="getMenusByUserId" resultMap="TUser">
 		select distinct  da.userid
 		from dev_auth da join dev_role_auth dra on da.authid = dra.authid
 						 join dev_user_role dur on dur.roleid = dra.roleid
