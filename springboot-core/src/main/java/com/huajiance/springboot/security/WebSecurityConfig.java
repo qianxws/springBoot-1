@@ -43,9 +43,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 // 设置登陆页
-                .formLogin().loginPage("/login")
+                .formLogin().loginPage("/login.html")
                 // 设置登陆成功页
-                .defaultSuccessUrl("/").permitAll()
+                .defaultSuccessUrl("/index.html").permitAll()
                 .and()
                 .logout().permitAll();
 
