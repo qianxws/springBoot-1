@@ -7,29 +7,25 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="/assets/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="assets/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="/assets/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="assets/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="/assets/plugins/iCheck/square/blue.css">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  <link rel="stylesheet" href="assets/plugins/iCheck/square/blue.css">
+  <script   src="js/vue2.6.10.js"></script>
   <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="css/stylecss.css">
 </head>
 <body   ><!-- background = " images/123.jpg "; -->
 <div class="login-box">
-  <div class="login-logo">
-    <a href="/assets/index2.html">用户登录</a>
-  </div>
-  <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">登录打开新世界</p>
 
-    <form action="../../index2.html" method="post" id="testvue">
+    <form action="" method="post" id="testvue">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="用户名"  v-model="users.username ">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -47,7 +43,7 @@
           </div>
         </div>      
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+          <button type="button" class="btn btn-primary btn-block btn-flat" v-on:click="check"  >登录</button>
         </div>    
       </div>
     </form>
@@ -69,7 +65,7 @@
     });
   });
   
-  var vue= new Vue({
+  /* var vue= new Vue({
 	  el:"#testvue",
       data:{
     	  users:{
@@ -77,7 +73,38 @@
     		  password:'',   		  
     	  }
       }	  
-  });
+  }); */
+  var vue=new Vue({
+      el:"#testvue",
+      data:{
+          users:{
+              username:'',
+              password:'',
+          }
+      },
+  methods:{
+       check:function(){
+       var usernames=this.users.username;
+       var passwords=this.users.password;
+       if(usernames == '' || passwords == '' ){
+           alert('账号或密码不能为空');
+       }else{       
+          $.ajax({
+              url:"",
+              dataType:"json",
+              async:true,
+              data:{usernames:usernames,passwords:passwords},
+              type:"POST",           
+              success:function (data){
+                  console.log(data)
+              },
+              error :function(data){
+                  console.log(data)
+              }
+          })
+       }
+     }*/
+  
 
 </script>
 </body>
