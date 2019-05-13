@@ -2,28 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.huajiance.springboot.mapper.UserMapper">
 
-	<resultMap type="order" id="userResultMap">
-		<!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
-		<!-- property：主键在pojo中的属性名 -->
-		<!-- column：主键在数据库中的列名 -->
-		<id property="id" column="id" />
-
-		<!-- 定义普通属性 -->
-		<result property="userId" column="user_id" />
-		<result property="number" column="number" />
-		<result property="createtime" column="createtime" />
-		<result property="note" column="note" />
+	<resultMap id="TUser" type="com.huajiance.springboot.entity.TUser">
+		<result column="userid" jdbcType="VARCHAR" property="userId" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="password" jdbcType="VARCHAR" property="password" />
+		<result column="sex" jdbcType="VARCHAR" property="sex" />
 	</resultMap>
 
-	<select id="getByUserId" resultType="userResultMap">
-		SELECT * FROM dev_user WHERE userid = #{userId}
+	<select id="getByUserId" resultMap="com.huajiance.springboot.entity.TUser">
+		SELECT userid, name, password, sex FROM dev_user WHERE userid = #{userId}
 	</select>
-	
-	
+
+
 	<select id="getMenusByUserId" resultMap="com.huajiance.springboot.entity.TUser">
-		select distinct  da.code 
-        from dev_auth da join dev_role_auth dra on da.authid = dra.authid 
-            join dev_user_role dur on dur.roleid = dra.roleid 
-        where dur.userid = #{userId}
+		select distinct  da.userid
+		from dev_auth da join dev_role_auth dra on da.authid = dra.authid
+						 join dev_user_role dur on dur.roleid = dra.roleid
+		where dur.userid = #{userId}
 	</select>
 </mapper>
