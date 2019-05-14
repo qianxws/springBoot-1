@@ -5,6 +5,7 @@ import com.huajiance.springboot.service.UserService;
 import com.huajiance.springboot.utils.RedisUtils;
 import com.huajiance.springboot.utils.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -34,7 +35,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         if(user != null){
             String token = UUID.randomUUID().toString().replaceAll("-","");
 //            TokenUtils.tokenMap.put(user.getUserId(), token);
-            redisUtils.set(user.getUserId(), token);
+//            redisUtils.set(user.getUserId(), token);
         }
 
         // 判断用户是否存在
