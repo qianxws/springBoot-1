@@ -55,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .anyRequest().authenticated().and()
             .formLogin().loginPage("/login.html") // 设置登录页面
             .loginProcessingUrl("/login") // 自定义的登录接口
-            .defaultSuccessUrl("/index.html")
+//            .defaultSuccessUrl("/index.html")
             .failureUrl("/error")
             .permitAll() //登录页面用户任意访问
             .successHandler(authenticationSuccessHandler) // 认证成功回调
