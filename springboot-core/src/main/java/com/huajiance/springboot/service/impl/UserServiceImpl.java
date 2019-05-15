@@ -14,13 +14,9 @@ public class UserServiceImpl implements UserService {
     private UserMapper userDao;
 
     @Override
-    public List<String> getMenusByUserId(String userId) {
-        List<String> menus = userDao.getMenusByUserId(userId);
-        return menus;
-    }
-
-    @Override
     public TUser getByUserId(String userId) {
         return userDao.getByUserId(userId);
     }
+
+
 }

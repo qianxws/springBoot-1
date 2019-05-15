@@ -25,6 +25,8 @@ public class AuthenticationAccessDeniedHandler implements AccessDeniedHandler {
 	public void handle(HttpServletRequest request, HttpServletResponse response,
 			AccessDeniedException accessDeniedException) throws IOException, ServletException {
 		logger.info("没有权限!");
+
+		response.sendRedirect("assets/pages/examples/500.html");
 	}
 
 }

@@ -20,4 +20,11 @@
 						 join dev_user_role dur on dur.roleid = dra.roleid
 		where dur.userid = #{userId}
 	</select>
+
+	<select id="getRoleByUserId" resultMap="TUser">
+		select distinct  da.userid
+		from dev_auth da join dev_role_auth dra on da.authid = dra.authid
+						 join dev_user_role dur on dur.roleid = dra.roleid
+		where dur.userid = #{userId}
+	</select>
 </mapper>

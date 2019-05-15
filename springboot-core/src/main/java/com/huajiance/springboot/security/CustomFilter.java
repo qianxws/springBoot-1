@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 @Component
-@WebFilter(urlPatterns = "/*", filterName = "test")
+@WebFilter(urlPatterns = "*.do", filterName = "test")
 public class CustomFilter implements Filter {
 
 
