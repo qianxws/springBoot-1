@@ -42,7 +42,6 @@ public class MenuController {
             menuSet.addAll(menuMap);
         }
         JSONObject json = new JSONObject();
-//        List<String> menulist = menuService.getUserMenus();
         json.put("menuList", menuSet);
         logger.info("------------获取当前用户下属菜单---------------");
         return json;
