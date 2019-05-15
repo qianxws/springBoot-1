@@ -19,7 +19,7 @@
 	</resultMap>
 
 	<select id="getUserMenus" resultMap="TMenu">
-		select * from DEV_MENU t
+		select * from DEV_MENU t where t.enabled = '1' and t.menuid != '0'
 	</select>
 
 	<select id="getUserMenusByRoleId" resultType="TMenu">
