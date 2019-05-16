@@ -68,7 +68,7 @@
             	</a>
             	<ul class="treeview-menu" >
             		<li class="active" v-for=" chlid_menu in menu.child_menu " >
-            			<a >
+            			<a  :href="'#/views/' + chlid_menu.url +'/index.html'  " >
             				<i class="fa fa-circle-o"></i>{{chlid_menu.name}}
             			</a>
             		</li>        
@@ -81,12 +81,14 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+    
     <section class="content-header">
+     
       
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content"  id="content" >
       
     </section>
     <!-- /.content -->
@@ -129,8 +131,23 @@
 .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side{
     background-color: #255870;
 }
-* {
+.skin-blue .sidebar-menu>li>.treeview-menu {
+    margin: 0 1px;
+    background: #255870;
+}
+
+.skin-blue .sidebar-menu .treeview-menu>li.active>a, .skin-blue .sidebar-menu .treeview-menu>li>a:hover {
+    color: #ffffff;
+}
+ * {
     box-sizing: border-box;
-    color: beige;
+} 
+.content {
+    min-height: 250px;
+    /* padding: 15px; */
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 1px;
+    padding-right: 10px;
 }
 </style>

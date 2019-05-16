@@ -1,9 +1,8 @@
 
 var DevMods = {
 	ajax : function(action, verb, ajaxParams){
-		var apiPath = Config.apiPath.replace(/\?$/,'');
-		var url = apiPath + '/commMods/ajax?action=' + action + '&verb=' + verb;
-		
+		var apiPath = ".".replace(/\?$/,'');
+		var url ='/' + action + '/' + verb + '.do';			
 		return new Promise(function(resolve,reject){
 			var data = null;
 			if(ajaxParams){
