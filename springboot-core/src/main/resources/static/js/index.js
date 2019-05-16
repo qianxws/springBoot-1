@@ -13,7 +13,7 @@ var  vm = new Vue ({
 		 getData : function(){
 			$.ajax({
 				type :'post',
-				url  : "/menu/getUserMenus",
+				url  : "/menu/getUserMenus.do",
 				cache:false,
 				dataType :'json',
 				success:function (data){					

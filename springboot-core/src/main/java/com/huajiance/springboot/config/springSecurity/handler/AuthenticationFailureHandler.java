@@ -1,4 +1,4 @@
-package com.huajiance.springboot.handler;
+package com.huajiance.springboot.config.springSecurity.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package com.huajiance.springboot.security;
+package com.huajiance.springboot.config.Redis;
 
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;

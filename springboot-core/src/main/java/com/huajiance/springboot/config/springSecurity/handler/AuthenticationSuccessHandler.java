@@ -1,4 +1,4 @@
-package com.huajiance.springboot.handler;
+package com.huajiance.springboot.config.springSecurity.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

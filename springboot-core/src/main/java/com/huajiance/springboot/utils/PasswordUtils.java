@@ -1,4 +1,4 @@
-package com.huajiance.springboot.security;
+package com.huajiance.springboot.utils;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,7 @@ import java.security.MessageDigest;
  * @author hanxu
  */
 @Component
-public class PasswordEncoderImpl implements PasswordEncoder{
+public class PasswordUtils implements PasswordEncoder{
 
 	/**
 	 * 密码加密

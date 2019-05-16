@@ -2,6 +2,7 @@ package com.huajiance.springboot.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 public class TMenu implements Serializable {
 
@@ -19,6 +20,20 @@ public class TMenu implements Serializable {
     private String updator;
 
     public TMenu() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TMenu tMenu = (TMenu) o;
+        return Objects.equals(menuid, tMenu.menuid) &&
+                Objects.equals(name, tMenu.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(menuid, name);
     }
 
     public String getMenuid() {

@@ -23,10 +23,13 @@
 	</select>
 
 	<select id="getUserMenusByRoleId" resultType="TMenu">
-		select dm.* from dev_menu dm
-			join dev_auth da on dm.name=da.name or dm.code=da.code
-			join dev_role_auth dra on da.authid=dra.authid
-		where dra.roleid=#{roleId} and dm.enabled='1'
+		select * from (
+			  select distinct dm.* from dev_menu dm
+				join dev_auth da on dm.name=da.name or dm.code=da.code
+				join dev_role_auth dra on da.authid=dra.authid
+			  where dra.roleid=#{roleId} and dm.enabled='1'
+	  	) t
+		order by t.cseq asc
 	</select>
 
 </mapper>

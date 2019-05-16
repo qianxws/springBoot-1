@@ -1,13 +1,10 @@
-package com.huajiance.springboot.security;
+package com.huajiance.springboot.config.springSecurity;
 
 import com.huajiance.springboot.entity.TUser;
 import com.huajiance.springboot.entity.TUserRole;
 import com.huajiance.springboot.service.RoleService;
 import com.huajiance.springboot.service.UserService;
-import com.huajiance.springboot.utils.RedisUtils;
-import com.huajiance.springboot.utils.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * 自定义userDetailsService
